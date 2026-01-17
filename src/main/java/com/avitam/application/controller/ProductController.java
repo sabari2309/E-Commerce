@@ -39,9 +39,9 @@ public class ProductController {
     	Category category=categoryService.getCategoryById(cat_id);
     	SubCategory subCategory=subCategoryService.getSubCategoryById(categoryId);
     	System.out.println(subCategory.getId()+"-"+subCategory.getCategory_id()+" "+subCategory.getName());
-    	model.addAttribute("subcategory",subCategory);
-    	model.addAttribute("products", products);
-    	model.addAttribute("category", category);
+    	session.setAttribute("subcategory",subCategory);
+    	session.setAttribute("products", products);
+    	session.setAttribute("category", category);
     	return "products";
     }
     
@@ -51,7 +51,7 @@ public class ProductController {
 		    return "redirect:/login";
 		}
     	Product product=productService.findProductById(productId);
-    	model.addAttribute("product",product);
+    	session.setAttribute("product",product);
     	return "view-details";
     }
     private boolean isLoggedIn(HttpSession session) {

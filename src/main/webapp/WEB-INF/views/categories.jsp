@@ -52,13 +52,13 @@
 
 <div class="row">
 
-<c:forEach var="cat" items="${categories}">
+<c:forEach var="category" items="${categories}">
     <div class="col-sm-4">
-        <a href="<c:url value='categories/${cat.id}/sub-categories'/>">
+        <a href="<c:url value='categories/${category.id}/sub-categories'/>">
             <div class="category-card">
-                <img src="<c:url value='/images/products/${cat.icon}'/>"
+                <img src="<c:url value='/images/products/${category.icon}'/>"
                      width="150" height="150"/>
-                <h4>${cat.name}</h4>
+                <h4>${category.name}</h4>
             </div>
         </a>
     </div>

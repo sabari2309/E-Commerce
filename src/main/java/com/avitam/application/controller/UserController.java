@@ -51,10 +51,10 @@ public class UserController {
     	model.addAttribute("user", user);
     	session.setAttribute("loggedUser", user);
     	return "redirect:/categories";
-    }
+    } 
     
     @GetMapping("/logout")
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session,Model model) {
 	    session.invalidate();
 	    return "redirect:/login";
 	}

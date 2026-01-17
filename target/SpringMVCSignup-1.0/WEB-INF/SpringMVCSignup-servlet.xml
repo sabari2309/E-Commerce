@@ -38,6 +38,16 @@
       class="com.avitam.application.daoimpl.SubCategoryDaoImpl">
       <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
+    
+    <bean id="cartDao"
+      class="com.avitam.application.daoimpl.CartDaoImpl">
+      <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    
+    <bean id="cartItemDao"
+      class="com.avitam.application.daoimpl.CartItemDaoImpl">
+      <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
       
                             <!-- SERVICE LAYER -->
       
@@ -59,6 +69,16 @@
    <bean id="subCategoryService"
       class="com.avitam.application.serviceimpl.SubCategoryServiceImpl">
       <property name="subCategoryDao" ref="subCategoryDao"/>
+   </bean>
+   
+   <bean id="cartService"
+      class="com.avitam.application.serviceimpl.CartServiceImpl">
+      <property name="cartDao" ref="cartDao"/>
+   </bean>
+   
+   <bean id="cartItemService"
+      class="com.avitam.application.serviceimpl.CartItemServiceImpl">
+      <property name="cartItemDao" ref="cartItemDao"/>
    </bean>
    
                           <!--   JDBC CONNECT -->
