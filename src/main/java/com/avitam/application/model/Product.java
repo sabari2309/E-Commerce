@@ -1,7 +1,12 @@
 package com.avitam.application.model;
 
 public class Product {
-    private int id;
+    @Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", description=" + description
+				+ ", categoryId=" + categoryId + ", image=" + image + "]";
+	}
+	private int id;
     private String name;
     private double price;
     private String description;

@@ -22,6 +22,10 @@ public int getCategory_id() {
 public void setCategory_id(int i) {
 	Category_id = i;
 }
+@Override
+public String toString() {
+	return "SubCategory [id=" + id + ", name=" + name + ", Category_id=" + Category_id + "]";
+}
   
   
 }
