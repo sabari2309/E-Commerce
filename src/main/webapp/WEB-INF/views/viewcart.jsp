@@ -44,107 +44,115 @@
 
 <div class="container">
 
-<h2 class="text-center">My Cart</h2>
-<hr>
+    <!-- HEADER -->
+    <div class="row" style="margin-top:20px;">
+        <div class="col-sm-8">
+            <h2>My Cart</h2>
+        </div>
+        <div class="col-sm-4 text-right" style="margin-top:20px;">
 
-<c:if test="${empty cartItems}">
-    <h4 class="empty-cart">Your cart is empty</h4>
-</c:if>
+    
+    <a href="<c:url value='/vieworder'/>"
+          class="btn btn-primary">
+          View Orders
+    </a>
+    
+    <form action="<c:url value='/logout'/>"
+          method="get"
+          style="display:inline-block;">
 
-<c:forEach var="item" items="${cartItems}">
-<div class="row cart-card">
-
-    <!-- SELECT -->
-    <div class="col-sm-1 text-center">
-        <input type="checkbox"
-               class="cart-check"
-               data-price="${item.product.price}"
-               data-qty="${item.quantity}"
-               value="${item.cartItem_id}"
-               onchange="calculateTotal()">
-    </div>
-
-    <!-- IMAGE -->
-    <div class="col-sm-2">
-        <img src="${pageContext.request.contextPath}/images/products/${item.product.image}"
-             class="product-img">
-    </div>
-
-    <!-- DETAILS -->
-    <div class="col-sm-3">
-        <h4>${item.product.name}</h4>
-        <p>₹ ${item.product.price}</p>
-        <p>Qty: <b>${item.quantity}</b></p>
-    </div>
-
-    <!-- UPDATE -->
-    <div class="col-sm-3">
-        <a href="${pageContext.request.contextPath}/cart/item/${item.cartItem_id}/edit"
-           class="btn btn-warning btn-sm">
-           Update
-        </a>
-    </div>
-
-    <!-- REMOVE -->
-    <div class="col-sm-3">
-        <form action="${pageContext.request.contextPath}/cart/item/remove"
-              method="post">
-            <input type="hidden" name="cartItemId"
-                   value="${item.cartItem_id}">
-            <button class="btn btn-danger btn-sm">Remove</button>
-        </form>
-    </div>
+        <button type="submit" class="btn btn-danger">
+             Logout
+        </button>
+    </form>
 
 </div>
-</c:forEach>
 
+    </div>
 
-<hr>
+    <hr>
 
-<!-- CHECKOUT -->
-<form action="${pageContext.request.contextPath}/cart/checkout"
-      method="post" onsubmit="return submitSelectedItems()">
+    <!-- EMPTY CART MESSAGE -->
+    <c:if test="${empty cartItems}">
+        <h4 class="empty-cart">Your cart is empty</h4>
+    </c:if>
 
-    <input type="hidden" name="selectedItems" id="selectedItems">
+    <!-- CART ITEMS -->
+    <c:forEach var="item" items="${cartItems}">
+        <div class="row cart-card">
 
-    <div class="row">
-        <div class="col-sm-12 total-box">
-            Selected Total: ₹ <span id="grandTotal">0</span>
+            <!-- SELECT -->
+            <div class="col-sm-1 text-center">
+                <input type="checkbox"
+                       class="cart-check"
+                       data-price="${item.product.price}"
+                       data-qty="${item.quantity}"
+                       value="${item.cartItem_id}"
+                       onchange="calculateTotal()">
+            </div>
+
+            <!-- IMAGE -->
+            <div class="col-sm-2">
+                <img src="${pageContext.request.contextPath}/images/products/${item.product.image}"
+                     class="product-img">
+            </div>
+
+            <!-- DETAILS -->
+            <div class="col-sm-3">
+                <h4>${item.product.name}</h4>
+                <p>₹ ${item.product.price}</p>
+                <p>Qty: <b>${item.quantity}</b></p>
+            </div>
+
+            <!-- UPDATE -->
+            <div class="col-sm-3">
+                <a href="${pageContext.request.contextPath}/cart/item/${item.cartItem_id}/edit"
+                   class="btn btn-warning btn-sm">
+                   Update
+                </a>
+            </div>
+
+            <!-- REMOVE -->
+            <div class="col-sm-3">
+                <form action="${pageContext.request.contextPath}/cart/item/remove"
+                      method="post">
+                    <input type="hidden" name="cartItemId"
+                           value="${item.cartItem_id}">
+                    <button class="btn btn-danger btn-sm">Remove</button>
+                </form>
+            </div>
+
         </div>
-    </div>
+    </c:forEach>
 
-    <br>
+    <hr>
 
-    <div class="text-right">
-        <button class="btn btn-success btn-lg">
-            Checkout Selected Items
-        </button>
-    </div>
+    <!-- CHECKOUT -->
+    <form action="${pageContext.request.contextPath}/cart/checkout"
+          method="post" onsubmit="return submitSelectedItems()">
 
-</form>
+        <input type="hidden" name="selectedItems" id="selectedItems">
+
+        <div class="row">
+            <div class="col-sm-12 total-box">
+                Selected Total: ₹ <span id="grandTotal">0</span>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="text-right">
+            <button class="btn btn-success btn-lg">
+                Checkout Selected Items
+            </button>
+        </div>
+
+    </form>
 
 </div>
 
 <!-- JS -->
 <script>
-function changeQty(id, delta) {
-    let input = document.getElementById("qty-" + id);
-    let qty = parseInt(input.value);
-    let newQty = qty + delta;
-    if (newQty < 1) return;
-    input.value = newQty;
-    syncQty(id);
-}
-
-function syncQty(id) {
-    let input = document.getElementById("qty-" + id);
-    let checkbox = document.querySelector(".cart-check[data-id='" + id + "']");
-    if (checkbox) {
-        checkbox.dataset.qty = input.value;
-    }
-    calculateTotal();
-}
-
 function calculateTotal() {
     let total = 0;
     document.querySelectorAll(".cart-check:checked").forEach(cb => {

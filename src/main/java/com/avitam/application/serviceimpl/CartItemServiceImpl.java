@@ -1,5 +1,6 @@
 package com.avitam.application.serviceimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,22 @@ public class CartItemServiceImpl implements CartItemService {
 	public void removeItemById(int cartItemId) {
 		cartItemDao.removeItem(cartItemId);
 		
+	}
+
+	@Override
+	public List<CartItem> getCartItemsByIds(int[] selectedItems) {
+		List<CartItem> items=new ArrayList<>();
+		for(int id:selectedItems) {
+			items.add(cartItemDao.getCartItemById(id));
+		}
+		return items;
+	}
+
+	@Override
+	public void removeCartItems(List<CartItem> cartItems) {
+		for(CartItem item:cartItems) {
+		    cartItemDao.deleteCartItems(item);
+		}
 	}
 
 }

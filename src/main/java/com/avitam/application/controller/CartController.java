@@ -28,11 +28,16 @@ public class CartController {
 	
 	@PostMapping("cart/items/add")
 	public String cartcontrol(@RequestParam int productId,@RequestParam int quantity,HttpSession session,RedirectAttributes redirectAttributes) {
+		if (!isLoggedIn(session)) {
+		    return "redirect:/login";
+		}
 		User user=(User)session.getAttribute("loggedUser");
 		Cart cart=cartService.getCartByUserId(user.getUser_id());
 		cartItemService.addProductToCart(cart.getId(), productId, quantity);
 		return "redirect:/cart/view";
 	}
 	
-	
+	private boolean isLoggedIn(HttpSession session) {
+	    return session.getAttribute("loggedUser") != null;
+	}
 }

@@ -75,4 +75,10 @@ public class CartItemDaoImpl implements CartItemDao {
 		
 	}
 
+	@Override
+	public void deleteCartItems(CartItem item) {
+		String sql="delete from cart_items where cart_item_id=?";
+		jdbcTemplate.update(sql,item.getCartItem_id());
+	}
+
 }

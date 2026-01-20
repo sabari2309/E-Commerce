@@ -14,4 +14,8 @@ public interface CartItemService {
    void updateCart(int cartItemId, int quantity);
 
   void removeItemById(int cartItemId);
+
+  List<CartItem> getCartItemsByIds(int[] selectedItems);
+
+  void removeCartItems(List<CartItem> cartItems);
 }

@@ -41,7 +41,36 @@
 
 <div class="container">
 
-    <h3 class="text-center">Confirm Product & Quantity</h3>
+    <!-- HEADER ROW -->
+    <div class="row" style="margin-top:20px;">
+        <div class="col-sm-8">
+            <h3>Confirm Product & Quantity</h3>
+        </div>
+         <div class="col-sm-4 text-right" style="margin-top:20px;">
+
+    <a href="<c:url value='/cart/view'/>"
+          class="btn btn-primary">
+          Go to Cart
+    </a>
+    
+    <a href="<c:url value='/vieworder'/>"
+          class="btn btn-primary">
+          View Orders
+    </a>
+    
+    <form action="<c:url value='/logout'/>"
+          method="get"
+          style="display:inline-block;">
+
+        <button type="submit" class="btn btn-danger">
+             Logout
+        </button>
+    </form>
+
+</div>
+
+    </div>
+
     <hr>
 
     <div class="row product-card">
