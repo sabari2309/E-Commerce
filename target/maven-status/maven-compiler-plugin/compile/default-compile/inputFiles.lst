@@ -1,6 +1,4 @@
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\dao\CategoryDao.java
-C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\dao\CheckoutDao.java
-C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\serviceimpl\CheckoutServiceImpl.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\controller\OrderController.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\serviceimpl\CategoryServiceImpl.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\dao\OrderItemDao.java
@@ -14,7 +12,6 @@ C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\dao
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\model\Order.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\daoimpl\ProductDaoImpl.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\dao\SubCategoryDao.java
-C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\service\CheckoutService.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\rowmapper\UserRowMapper.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\serviceimpl\OrderEmailService.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\model\Category.java
@@ -51,7 +48,6 @@ C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\mod
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\serviceimpl\AddressServiceImpl.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\dto\OrderDTO.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\service\AddressService.java
-C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\daoimpl\CheckoutDaoImpl.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\rowmapper\AddressRowMapper.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\rowmapper\OrderItemRowMapper.java
 C:\Users\USER\Downloads\SpringMVCSignup\src\main\java\com\avitam\application\controller\ViewCartController.java

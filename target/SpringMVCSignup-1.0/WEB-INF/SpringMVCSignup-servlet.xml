@@ -55,10 +55,7 @@
       <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
     
-    <bean id="checkoutDao"
-      class="com.avitam.application.daoimpl.CheckoutDaoImpl">
-      <property name="jdbcTemplate" ref="jdbcTemplate"/>
-    </bean>
+    
     
     <bean id="orderDao"
       class="com.avitam.application.daoimpl.OrderDaoImpl">
@@ -107,10 +104,7 @@
       <property name="addressDao" ref="addressDao"/>
    </bean>
    
-   <bean id="checkoutService"
-      class="com.avitam.application.serviceimpl.CheckoutServiceImpl">
-      <property name="checkoutDao" ref="checkoutDao"/>
-   </bean>
+   
    
    <bean id="orderEmailService"
       class="com.avitam.application.serviceimpl.OrderEmailService">

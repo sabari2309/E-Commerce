@@ -27,7 +27,6 @@ com\avitam\application\controller\UserController.class
 com\avitam\application\daoimpl\OrderDaoImpl.class
 com\avitam\application\serviceimpl\CartServiceImpl.class
 com\avitam\application\controller\SubCategoryController.class
-com\avitam\application\daoimpl\CheckoutDaoImpl.class
 com\avitam\application\controller\CheckoutController.class
 com\avitam\application\serviceimpl\OrderServiceImpl.class
 com\avitam\application\controller\CategoryController.class
@@ -40,14 +39,11 @@ com\avitam\application\rowmapper\OrderItemRowMapper.class
 com\avitam\application\rowmapper\OrderRowMapper.class
 com\avitam\application\service\CategoryService.class
 com\avitam\application\daoimpl\AddressDaoImpl.class
-com\avitam\application\service\CheckoutService.class
 com\avitam\application\dao\CartItemDao.class
 com\avitam\application\model\OrderItem.class
 com\avitam\application\model\Order.class
-com\avitam\application\serviceimpl\CheckoutServiceImpl.class
 com\avitam\application\service\SubCategoryService.class
 com\avitam\application\dao\AddressDao.class
-com\avitam\application\dao\CheckoutDao.class
 com\avitam\application\rowmapper\CartRowMapper.class
 com\avitam\application\model\Category.class
 com\avitam\application\rowmapper\AddressRowMapper.class

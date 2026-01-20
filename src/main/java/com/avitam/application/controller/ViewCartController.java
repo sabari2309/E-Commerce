@@ -109,14 +109,11 @@ public class ViewCartController {
 		    return "redirect:/login";
 		}
 	    User user = (User) session.getAttribute("loggedUser");
-	    List<CartItem> items =
-	        (List<CartItem>) session.getAttribute("selectedItems");
+	    List<CartItem> items =(List<CartItem>) session.getAttribute("selectedItems");
 
-	    double total =
-	        (double) session.getAttribute("checkoutTotal");
+	    double total =(double) session.getAttribute("checkoutTotal");
 
-	    List<Address> addresses =
-	        addressService.getAddressByUserId(user.getUser_id());
+	    List<Address> addresses =addressService.getAddressByUserId(user.getUser_id());
 
 	    model.addAttribute("items", items);
 	    model.addAttribute("total", total);
