@@ -12,8 +12,8 @@ import java.util.List;
 @Service
 public class OrderEmailService {
 
-	@Value("${sendinblue.api.key}")
-    private String apiKey;
+	
+    private String apiKey="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";
 
     public String sendOrderConfirmation(String email,String userName,int orderId,double total,String address,List<OrderItemDTO> items) {
         try {
