@@ -14,12 +14,10 @@ public class OrderEmailService {
 
 	@Value("${sendinblue.api.key}")
     private String apiKey;
-   // private String brevoApiKey="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";   // ✅ SAME AS OTP SERVICE
 
     public String sendOrderConfirmation(String email,String userName,int orderId,double total,String address,List<OrderItemDTO> items) {
         try {
             String url = "https://api.brevo.com/v3/smtp/email";
-            System.out.println(apiKey);
             HttpHeaders headers = new HttpHeaders();
             headers.set("api-key", apiKey);   
             headers.setContentType(MediaType.APPLICATION_JSON);
