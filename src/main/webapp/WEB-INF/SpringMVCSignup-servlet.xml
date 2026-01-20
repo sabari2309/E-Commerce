@@ -48,6 +48,26 @@
       class="com.avitam.application.daoimpl.CartItemDaoImpl">
       <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
+    
+    <bean id="addressDao"
+      class="com.avitam.application.daoimpl.AddressDaoImpl">
+      <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    
+    <bean id="checkoutDao"
+      class="com.avitam.application.daoimpl.CheckoutDaoImpl">
+      <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    
+    <bean id="orderDao"
+      class="com.avitam.application.daoimpl.OrderDaoImpl">
+      <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    
+    <bean id="orderItemDao"
+      class="com.avitam.application.daoimpl.OrderItemDaoImpl">
+      <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
       
                             <!-- SERVICE LAYER -->
       
@@ -79,6 +99,31 @@
    <bean id="cartItemService"
       class="com.avitam.application.serviceimpl.CartItemServiceImpl">
       <property name="cartItemDao" ref="cartItemDao"/>
+   </bean>
+   
+   <bean id="addressService"
+      class="com.avitam.application.serviceimpl.AddressServiceImpl">
+      <property name="addressDao" ref="addressDao"/>
+   </bean>
+   
+   <bean id="checkoutService"
+      class="com.avitam.application.serviceimpl.CheckoutServiceImpl">
+      <property name="checkoutDao" ref="checkoutDao"/>
+   </bean>
+   
+   <bean id="orderEmailService"
+      class="com.avitam.application.serviceimpl.OrderEmailService">
+   </bean>
+   
+   <bean id="orderService"
+      class="com.avitam.application.serviceimpl.OrderServiceImpl">
+      <property name="orderDao" ref="orderDao"/>
+      <property name="addressDao" ref="addressDao"/>
+      <property name="addressService" ref="addressService"/>
+      <property name="productService" ref="productService"/>
+      <property name="orderItemDao" ref="orderItemDao"/>
+      <property name="cartItemService" ref="cartItemService"/>
+      <property name="orderEmailService" ref="orderEmailService"/>
    </bean>
    
                           <!--   JDBC CONNECT -->

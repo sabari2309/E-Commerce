@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.avitam.application.model.Category;
 import com.avitam.application.model.Product;
 import com.avitam.application.model.SubCategory;
+import com.avitam.application.model.User;
 import com.avitam.application.service.CategoryService;
 import com.avitam.application.service.ProductService;
 import com.avitam.application.service.SubCategoryService;
@@ -35,6 +36,7 @@ public class ProductController {
     	if (!isLoggedIn(session)) {
 		    return "redirect:/login";
 		}
+    	User user = (User) session.getAttribute("loggedUser");
     	List<Product> products=productService.fetchProductByCategory(categoryId);
     	Category category=categoryService.getCategoryById(cat_id);
     	SubCategory subCategory=subCategoryService.getSubCategoryById(categoryId);
@@ -42,6 +44,7 @@ public class ProductController {
     	session.setAttribute("subcategory",subCategory);
     	session.setAttribute("products", products);
     	session.setAttribute("category", category);
+    	model.addAttribute("user",user);
     	return "products";
     }
     

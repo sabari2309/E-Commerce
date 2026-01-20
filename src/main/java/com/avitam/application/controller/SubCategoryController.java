@@ -28,9 +28,11 @@ public class SubCategoryController {
 		if (!isLoggedIn(session)) {
 		    return "redirect:/login";
 		}
+	  User user = (User) session.getAttribute("loggedUser");
       List<SubCategory> subCategories=subCategoryService.getSubCategoriesById(category_id);
       model.addAttribute("category", categoryService.getCategoryById(category_id));
       model.addAttribute("subCategories", subCategories);
+      model.addAttribute("user", user);
       return "subcategories";
   }
 	private boolean isLoggedIn(HttpSession session) {
